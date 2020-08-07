@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Actions from './actions'
 function ItSelf({ data }) {
       return (
             <div>
@@ -12,15 +13,13 @@ function Recur({ data }) {
                   {data.map(i => {
                         return (
                               <div>
-                                    {i.tag === 'img' ? <i.tag src={i.src} /> : <i.tag>{i.text}
-                                          <div style={{ marginLeft: "20px" }}>
-                                                {i.sub && <ItSelf data={i.sub} />}
-                                          </div>
-                                    </i.tag>}
+                                    {i.tag === 'img' ? <i.tag src={i.src} /> : <Actions i={i} />}
+                                    <div style={{ marginLeft: "20px" }}>
+                                          {i.sub && <ItSelf data={i.sub} />}</div>
                               </div>
                         )
                   })}
-            </div>
+            </div >
       )
 
 }
