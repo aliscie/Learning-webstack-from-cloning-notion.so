@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Actions from './actions'
 import ActionsButton from './button'
-
+import AddImage from './image'
 function ItSelf({ data }) {
       return (
             <div>
@@ -16,7 +16,7 @@ function Recur({ data }) {
                         return (
                               <div>
                                     <ActionsButton i={i} />
-                                    {i.tag === 'img' ? <i.tag src={i.src} /> : <Actions i={i} />}
+                                    {i.tag === 'img' ? <AddImage i={i} /> : <Actions i={i} />}
                                     <div style={{ marginLeft: "20px" }}>
                                           {i.sub && <ItSelf data={i.sub} />}</div>
                               </div>
