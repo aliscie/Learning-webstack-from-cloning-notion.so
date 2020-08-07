@@ -10,7 +10,9 @@ function ActionsButton({ i }) {
 
 
       return (
-            <div>
+            <div
+            //how to set the buttons on the left side?
+            >
                   <button
                         onClick={() => deleting(i.id)}
                         onMouseLeave={() => setmouseover1(false)}
