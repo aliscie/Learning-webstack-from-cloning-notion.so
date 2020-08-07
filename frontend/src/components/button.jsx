@@ -5,12 +5,16 @@ function ActionsButton({ i }) {
       const { data, put, setid, deleting, SetnewPost } = useElements();
       const [mouseover1, setmouseover1] = useState(false)
       const [mouseover2, setmouseover2] = useState(false)
+      const [mouseover3, setmouseover3] = useState(false)
 
 
 
 
       return (
-            <div>
+            <div
+                  style={{ display: 'inline-block' }}
+            //how to set the buttons on the left side?
+            >
                   <button
                         onClick={() => deleting(i.id)}
                         onMouseLeave={() => setmouseover1(false)}
@@ -25,6 +29,13 @@ function ActionsButton({ i }) {
                         style={{ opacity: mouseover2 ? '1' : '0.1' }}
                         className='btn btn-success'
                   >+</button>
+                  <button
+                        onClick={() => SetnewPost({ tag: 'img', src: 'https://image.shutterstock.com/image-photo/samoyed-dog-resting-on-green-260nw-1744113746.jpg', main: `${i.id}` })}
+                        onMouseLeave={() => { setmouseover3(false) }}
+                        onMouseOver={() => { setmouseover3(true) }}
+                        style={{ opacity: mouseover3 ? '1' : '0.1' }}
+                        className='btn btn-success'
+                  >+sub img</button>
             </div>
       )
 }

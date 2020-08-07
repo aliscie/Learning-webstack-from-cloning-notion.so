@@ -21,7 +21,12 @@ function App() {
       <button
         onClick={() => SetnewPost({ tag: 'div', text: 'add new text' })}
         className=' btn btn-success'
-      >create parent</button>
+      >+ parent</button>
+      <button
+        onClick={() => SetnewPost({ tag: 'img', src: 'https://image.shutterstock.com/image-photo/samoyed-dog-resting-on-green-260nw-1744113746.jpg' })}
+        className=' btn btn-success'
+      >+ img</button>
+
 
     </div>
   );
