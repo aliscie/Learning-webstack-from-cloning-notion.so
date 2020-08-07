@@ -13,17 +13,24 @@ function useElements() {
       }, [newData])
 
       useEffect(() => {
-            elementsApi.delete(`${IDtoDelete}/`).then(res => console.log(res)).catch(err => err && console.log(err))
+            if (IDtoDelete) {
+                  elementsApi.delete(`${IDtoDelete}/`).then(res => console.log(res)).catch(err => err && console.log(err))
+            }
       }, [IDtoDelete])
 
-      // useEffect(() => {
-      //       elementsApi.post('', newPost).then(res => console.log(res)).catch(err => err && console.log(err))
-      // }, [newPost])
+      useEffect(() => {
+            if (newPost) {
+                  elementsApi.post('', newPost).then(res => console.log(res)).catch(err => err && console.log(err))
+            }
+      }, [newPost])
 
       useEffect(() => {
-            elementsApi.get('').then(res => setState(res.data.filter(i => i.main == null))).catch(err => err && console.log(err))
+            if (data) {
+                  //problem when update a text the get function refresh the page and change the postion of the curter (typnig mouse curser)
+                  elementsApi.get('').then(res => setState(res.data.filter(i => i.main == null))).catch(err => err && console.log(err))
+            }
       }, [
-            // data
+            data
       ])
 
       return { data, put, setid, deleting, SetnewPost }

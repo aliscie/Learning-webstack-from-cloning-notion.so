@@ -9,7 +9,7 @@ function ItSelf({ data }) {
 }
 function Recur({ data }) {
       return (
-            <div>
+            <div className='card container' >
                   {data.map(i => {
                         return (
                               <div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import useElements from '../apiHooks/useElements'
-
+import ActionsButton from './button'
 function Actions({ i }) {
       const { data, put, setid, deleting, SetnewPost } = useElements();
       function update(event, i) {
@@ -8,10 +8,14 @@ function Actions({ i }) {
             setid(i.id)
       }
       return (
-            <div
-                  onKeyUp={(event) => update(event, i)}
-                  contentEditable='true'>
-                  {i.text}
+            <div>
+                  <ActionsButton i={i} />
+                  <div
+                        style={{ display: 'inline-block' }}
+                        onKeyUp={(event) => update(event, i)}
+                        contentEditable='true'>
+                        {i.text}
+                  </div>
             </div>
       )
 }
