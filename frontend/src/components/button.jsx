@@ -12,6 +12,7 @@ function ActionsButton({ i }) {
 
       return (
             <div
+                  style={{ display: 'inline-block' }}
             //how to set the buttons on the left side?
             >
                   <button
