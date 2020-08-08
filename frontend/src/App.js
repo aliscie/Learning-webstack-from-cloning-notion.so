@@ -3,7 +3,7 @@ import useElements from './apiHooks/useElements'
 import Recur from './components/recursion'
 
 function App() {
-  const { data, put, setid, deleting, SetnewPost } = useElements();
+  const { data, put, deleting, SetnewPost } = useElements();
   //I don't understand why this don't work.
   // function deleteall() {
   //   var i = 79

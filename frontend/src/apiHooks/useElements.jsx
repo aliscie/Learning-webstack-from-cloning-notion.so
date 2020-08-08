@@ -4,12 +4,11 @@ import axios from 'axios'
 const elementsApi = axios.create({ baseURL: 'http://127.0.0.1:8000/elements/' })
 function useElements() {
       const [data, setState] = useState([])
-      const [newData, put] = useState()
-      const [id, setid] = useState()
+      const [newData, put] = useState({})
       const [IDtoDelete, deleting] = useState()
       const [newPost, SetnewPost] = useState()
       useEffect(() => {
-            elementsApi.put(`${id}/`, newData).then(res => console.log(res.data)).catch(err => err && console.log(err))
+            elementsApi.put(`${newData.id}/`, newData.data).then(res => console.log(res.data)).catch(err => err && console.log(err))
       }, [newData])
 
       useEffect(() => {
@@ -35,7 +34,7 @@ function useElements() {
             // data
       ])
 
-      return { data, put, setid, deleting, SetnewPost }
+      return { data, put, deleting, SetnewPost }
 
 }
 export default useElements;

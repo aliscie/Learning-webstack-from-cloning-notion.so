@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import useElements from '../apiHooks/useElements'
 function Actions({ i }) {
-      const { data, put, setid, deleting, SetnewPost } = useElements();
+      const { data, put, deleting, SetnewPost } = useElements();
       function update(event, i) {
-            put({ text: event.target.innerText });
-            setid(i.id)
+            put({ data: { text: event.target.innerText } });
+            put({ id: i.id })
       }
 
       return (

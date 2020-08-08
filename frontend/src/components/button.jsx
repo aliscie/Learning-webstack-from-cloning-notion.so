@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import useElements from '../apiHooks/useElements'
 
 function ActionsButton({ i }) {
-      const { data, put, setid, deleting, SetnewPost } = useElements();
+      const { data, put, deleting, SetnewPost } = useElements();
       const [mouseover1, setmouseover1] = useState(false)
       const [mouseover2, setmouseover2] = useState(false)
       const [mouseover3, setmouseover3] = useState(false)
