@@ -1,42 +1,67 @@
 import React, { useState } from 'react'
 import useElements from '../apiHooks/useElements'
 
+import { Select } from 'antd';
+
+const { Option } = Select;
 function ActionsButton({ i }) {
       const { data, put, deleting, SetnewPost } = useElements();
-      const [mouseover1, setmouseover1] = useState(false)
-      const [mouseover2, setmouseover2] = useState(false)
-      const [mouseover3, setmouseover3] = useState(false)
 
+      function update(event) {
+            put({ id: i.id, data: { src: `${event.target.value}` } })
 
+      }
 
+      function onChange(value) {
+            value == 'delete' && deleting(i.id)
+            value == 'create sub' && SetnewPost({ tag: 'div', text: 'add new text', main: `${i.id}` })
+            value == 'create' && SetnewPost({ tag: 'div', text: 'add new text', main: `${i.main}` })
+            value == 'sub image' && SetnewPost({ tag: 'img', src: 'https://voxpopulii.in/system/static/dashboard/img/default_user.png', main: `${i.id}` })
+
+      }
+
+      function onBlur() {
+            console.log('blur');
+      }
+
+      function onFocus() {
+            console.log('focus');
+      }
+
+      function onSearch(val) {
+            console.log('search:', val);
+      }
 
       return (
-            <div
-                  style={{ display: 'inline-block' }}
-            //how to set the buttons on the left side?
-            >
-                  <button
-                        onClick={() => deleting(i.id)}
-                        onMouseLeave={() => setmouseover1(false)}
-                        onMouseOver={() => setmouseover1(true)}
-                        style={{ opacity: mouseover1 ? '1' : '0.1' }}
+
+            <Select
+                  bordered={false}
+                  filterOption={(input, option) => { console.log(input, option) }
+                  }
+                  onChange={onChange}
+                  onFocus={onFocus}
+                  onBlur={onBlur}
+                  onSearch={onSearch}
+                  filterOption={(input, option) =>
+                        //.toLowerCase() dont' work?
+                        option.children.indexOf(input.toLowerCase()) >= 0
+                  }
+                  showSearch
+                  defaultValue="options" style={{ width: 120 }}>
+                  <Option
                         className='btn btn-danger'
-                  >-</button>
-                  <button
-                        onClick={() => SetnewPost({ tag: 'div', text: 'add new text', main: `${i.id}` })}
-                        onMouseLeave={() => { setmouseover2(false) }}
-                        onMouseOver={() => { setmouseover2(true) }}
-                        style={{ opacity: mouseover2 ? '1' : '0.1' }}
-                        className='btn btn-success'
-                  >+</button>
-                  <button
-                        onClick={() => SetnewPost({ tag: 'img', src: 'https://image.shutterstock.com/image-photo/samoyed-dog-resting-on-green-260nw-1744113746.jpg', main: `${i.id}` })}
-                        onMouseLeave={() => { setmouseover3(false) }}
-                        onMouseOver={() => { setmouseover3(true) }}
-                        style={{ opacity: mouseover3 ? '1' : '0.1' }}
-                        className='btn btn-success'
-                  >+sub img</button>
-            </div>
+                        value="delete">delete</Option>
+                  <Option value="create sub">create sub</Option>
+                  <Option value="create" >
+                        create </Option>
+                  <Option value="sub image" >
+                        sub image </Option>
+                  {i.src && <Option value="url"  >
+                        <input onChange={(event) => {
+                              put({ id: i.id, data: { src: `${event.target.value}` } })
+                        }} />
+                  url</Option>}
+            </Select>
       )
 }
 export default ActionsButton;

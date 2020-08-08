@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Actions from './actions'
-import ActionsButton from './button'
+// import ActionsButton from './button'
 
 function ItSelf({ data }) {
       return (
@@ -15,7 +15,7 @@ function Recur({ data }) {
                   {data.map(i => {
                         return (
                               <div>
-                                    <ActionsButton i={i} />
+                                    {/* <ActionsButton i={i} /> */}
                                     <Actions i={i} />
                                     <div style={{ marginLeft: "20px" }}>
                                           {i.sub && <ItSelf data={i.sub} />}</div>

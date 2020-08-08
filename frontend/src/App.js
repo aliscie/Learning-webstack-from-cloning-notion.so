@@ -12,8 +12,7 @@ function App() {
   //     console.log('item with id ' + i + ' is deleted.')
   //   }
   // }
-
-
+  // );
   return (
     <div>
       {/* <button onClick={() => { deleteall() }}></button> */}
