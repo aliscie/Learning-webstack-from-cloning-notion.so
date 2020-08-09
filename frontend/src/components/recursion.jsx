@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Actions from './actions'
-// import ActionsButton from './button'
 
 function ItSelf({ data }) {
       return (
@@ -11,7 +10,7 @@ function ItSelf({ data }) {
 }
 function Recur({ data }) {
       return (
-            <div className='card container' >
+            <div>
                   {data.map(i => {
                         return (
                               <div>
