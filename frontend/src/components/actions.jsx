@@ -3,7 +3,6 @@ import useElements from '../apiHooks/useElements'
 import 'antd/dist/antd.css';
 import Button from './button'
 import { useSpring, animated } from 'react-spring'
-
 function Actions({ i }) {
       const { data, put, deleting, SetnewPost } = useElements();
       const [isover, setisover] = useState(false)
@@ -11,10 +10,10 @@ function Actions({ i }) {
       function update(event, i) {
             put({ id: i.id, data: { text: `${event.target.innerText}` } });
       }
-
-
       return (
             <div
+
+
                   onMouseLeave={() => setisover(false)} onMouseOver={() => setisover(true)}
                   style={{ paddingLeft: "200px", flexGrow: '1', display: 'flex', alignItems: 'center' }}>
                   <animated.div style={props} ><Button i={i} /></animated.div>
