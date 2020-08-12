@@ -6,7 +6,8 @@ function Drag(prop) {
       const { data, put, deleting, SetnewPost } = useElements();
       const [draged, setDraged] = useState(false)
       const [overed, setOvered] = useState(false)
-      const props = useSpring({ backgroundColor: overed ? 'rgb(165, 222, 249,0.3)' : 'rgb(165, 222, 249,0)', display: draged ? 'none' : 'block' })
+      const props = useSpring({ backgroundColor: overed ? 'rgb(165, 222, 249,0.3)' : 'rgb(165, 222, 249,0)' })
+      // display: draged ? 'none' : 'block'
 
       const onDragOver = e => {
             e.preventDefault();
@@ -16,14 +17,14 @@ function Drag(prop) {
             setDraged(true);
             //if the user drag the butten then  e.target.childNodes[0].lastChild.id
             //if the user drag the object it self liek draging the image then e.target.id
-            const elementid = e.target.id ? e.target.id : e.target.childNodes[0].lastChild.id
+            // console.log(e.target.id ? e.target.id : e.target.children[0].id)
+            const elementid = e.target.id ? e.target.id : e.target.children[0].id
             e.dataTransfer.setData("name", elementid);
       };
 
       const onDrop = (e) => {
             setOvered(false)
             put({ id: e.dataTransfer.getData("name"), data: { main: `${e.target.id}` } })
-            // console.log(e.dataTransfer.getData("name"))
 
       };
 

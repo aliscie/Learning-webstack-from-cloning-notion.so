@@ -13,7 +13,6 @@ function Actions({ i }) {
       return (
             <div
 
-
                   onMouseLeave={() => setisover(false)} onMouseOver={() => setisover(true)}
                   style={{ paddingLeft: "200px", flexGrow: '1', display: 'flex', alignItems: 'center' }}>
                   <animated.div style={props} ><Button i={i} /></animated.div>
@@ -24,7 +23,7 @@ function Actions({ i }) {
                                     style={{ maxWidth: '100%', width: '100%', whiteSpace: 'pre-warp', wordBreak: 'break-all', padding: '3px 2px', outline: 'none' }}
                                     onKeyUp={(event) => update(event, i)}
                                     contentEditable='true'>
-                                    {i.text}{' '}{i.id}
+                                    {i.text}
                               </div>
                   }
 

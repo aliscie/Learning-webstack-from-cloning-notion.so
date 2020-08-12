@@ -14,13 +14,13 @@ function Recur({ data }) {
             <div>
                   {data.map(i => {
                         return (
-                              <div>
+                              <Drag childern={<div id={i.id}>
                                     {/* <ActionsButton i={i} /> */}
-                                    <Drag childern={<Actions i={i} />} />
+                                    <Actions i={i} />
 
                                     <div style={{ marginLeft: "20px" }}>
                                           {i.sub && <ItSelf data={i.sub} />}</div>
-                              </div>
+                              </div>} />
                         )
                   })}
             </div >
