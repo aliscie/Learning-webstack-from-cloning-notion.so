@@ -18,14 +18,13 @@ function Actions({ i }) {
                   style={{ paddingLeft: "200px", flexGrow: '1', display: 'flex', alignItems: 'center' }}>
                   <animated.div style={props} ><Button i={i} /></animated.div>
                   {
-                        i.tag === 'img' ? <img src={i.src} /> :
+                        i.tag === 'img' ? <img id={i.id} src={i.src} /> :
                               <div
-                                    // problem: JSON.parse(i.style) return undifinde.
-                                    // should I use PostgreSQL and use JSONField?
+                                    id={i.id}
                                     style={{ maxWidth: '100%', width: '100%', whiteSpace: 'pre-warp', wordBreak: 'break-all', padding: '3px 2px', outline: 'none' }}
                                     onKeyUp={(event) => update(event, i)}
                                     contentEditable='true'>
-                                    {i.text}
+                                    {i.text}{' '}{i.id}
                               </div>
                   }
 
