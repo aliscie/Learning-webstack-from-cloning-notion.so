@@ -14,11 +14,16 @@ function App() {
   // }
   // );
   return (
-    <div>
+    <div
+      style={{ paddingLeft: "200px", flexGrow: '1', alignItems: 'center' }}
+
+    // style={{ maxWidth: '100%', width: '100%', whiteSpace: 'pre-warp', wordBreak: 'break-all', padding: '3px 2px', outline: 'none' }}
+
+    >
       {/* <button onClick={() => { deleteall() }}></button> */}
       <Recur data={data} />
       <button
-        onClick={() => SetnewPost({ tag: 'div', text: 'add new text' })}
+        onClick={() => SetnewPost({ tag: 'div', text: 'add new text', style: { borderRadius: '5px', backgroundColor: 'grey' } })}
         className=' btn btn-success'
       >+ parent</button>
       <button

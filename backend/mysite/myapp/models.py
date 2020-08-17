@@ -8,7 +8,7 @@ class elements(models.Model):
     src = models.TextField(blank=True, null=True)
     # problem: styles replace spaces with slashes (/)
     # I tried: json field but did'nt work.
-    style = models.TextField(blank=True, null=True)
+    style = models.JSONField(blank=True, null=True, default=dict)
 
     main = models.ForeignKey(
         'self', null=True, blank=True, related_name="sub", on_delete=models.PROTECT)
