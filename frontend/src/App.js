@@ -23,7 +23,7 @@ function App() {
       {/* <button onClick={() => { deleteall() }}></button> */}
       <Recur data={data} />
       <button
-        onClick={() => SetnewPost({ tag: 'div', text: 'add new text', style: { borderRadius: '5px', backgroundColor: 'grey' } })}
+        onClick={() => SetnewPost({ tag: 'div', text: 'add new text', style: { borderRadius: '5px', backgroundColor: 'orange' } })}
         className=' btn btn-success'
       >+ parent</button>
       <button

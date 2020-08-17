@@ -3,6 +3,7 @@ import useElements from '../apiHooks/useElements'
 import 'antd/dist/antd.css';
 import Button from './button'
 import { useSpring, animated } from 'react-spring'
+import ColumnGroup from 'antd/lib/table/ColumnGroup';
 function Actions({ i }) {
       const { data, put, deleting, SetnewPost } = useElements();
       const [isover, setisover] = useState(false)
@@ -18,16 +19,18 @@ function Actions({ i }) {
                   onMouseLeave={() => setisover(false)} onMouseOver={() => setisover(true)}
                   style={{ display: 'flex' }}            >
                   <animated.div style={props} ><Button i={i} /></animated.div>
-                  {
-                        i.tag === 'img' ? <img id={i.id} src={i.src} /> :
-                              <div
-                                    id={i.id}
-                                    onKeyUp={(event) => update(event, i)}
-                                    contentEditable='true'>
-                                    {i.text}
-                              </div>
-                  }
-                  <input onChange={e => put({ id: i.id, data: { style: { borderRadius: `${e.target.value}px`, background: 'grey' } } })} type='number' style={{ width: '40px', height: '20px' }} />
+                  <div style={i.style}>
+                        {
+                              i.tag === 'img' ? <img id={i.id} src={i.src} /> :
+                                    <div
+                                          id={i.id}
+                                          onKeyUp={(event) => update(event, i)}
+                                          contentEditable='true'>
+                                          {i.text}
+                                    </div>
+                        }
+                  </div>
+                  <input onChange={e => put({ id: i.id, data: { style: { borderRadius: `${e.target.value}px`, background: 'green' } } })} type='number' style={{ width: '40px', height: '20px' }} />
             </div >
       )
 }
