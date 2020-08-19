@@ -22,7 +22,7 @@ class elements(models.Model):
 
 class styles(models.Model):
     name = models.TextField(blank=True, null=True, max_length=50)
-    style = models.TextField(blank=True, null=True)
+    style = models.JSONField(blank=True, null=True)
     main = models.ForeignKey(
         'self', null=True, blank=True, related_name="sub", on_delete=models.PROTECT)
 

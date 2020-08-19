@@ -4,23 +4,11 @@ import Recur from './components/recursion'
 
 function App() {
   const { data, put, deleting, SetnewPost } = useElements();
-  //I don't understand why this don't work.
-  // function deleteall() {
-  //   var i = 79
-  //   for (i = 79; i <= 131; i++) {
-  //     deleting(i);
-  //     console.log('item with id ' + i + ' is deleted.')
-  //   }
-  // }
-  // );
+
+
   return (
     <div
-      style={{ paddingLeft: "200px", flexGrow: '1', alignItems: 'center' }}
-
-    // style={{ maxWidth: '100%', width: '100%', whiteSpace: 'pre-warp', wordBreak: 'break-all', padding: '3px 2px', outline: 'none' }}
-
-    >
-      {/* <button onClick={() => { deleteall() }}></button> */}
+      style={{ paddingLeft: "200px", flexGrow: '1', alignItems: 'center' }}>
       <Recur data={data} />
       <button
         onClick={() => SetnewPost({ tag: 'div', text: 'add new text', style: { borderRadius: '5px', backgroundColor: 'orange' } })}
@@ -32,7 +20,7 @@ function App() {
       >+ img</button>
 
 
-    </div>
+    </div >
   );
 }
 
