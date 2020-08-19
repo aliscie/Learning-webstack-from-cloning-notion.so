@@ -13,6 +13,12 @@ class elements(models.Model):
     main = models.ForeignKey(
         'self', null=True, blank=True, related_name="sub", on_delete=models.PROTECT)
 
+    def __str__(self):
+        return "<elements: {} {}>".format(self.tag, self.text, self.src, self.style)
+
+    def __repr__(self):
+        return self.__str__()
+
 
 class styles(models.Model):
     name = models.TextField(blank=True, null=True, max_length=50)
