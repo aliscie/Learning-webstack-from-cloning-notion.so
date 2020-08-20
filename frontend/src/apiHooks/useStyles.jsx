@@ -22,6 +22,12 @@ function useStyles() {
 
       }, [])
 
+      useEffect(() => {
+            if (SDel) {
+                  stylesApi.delete(`${SDel}/`).then(res => console.log(res)).catch(err => err && console.log(err))
+            }
+      }, [SDel])
+
       function GetByName(name) {
             return Get.filter(i => i.name === `${name}`)
       }

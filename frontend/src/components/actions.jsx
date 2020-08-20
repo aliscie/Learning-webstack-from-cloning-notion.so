@@ -17,13 +17,21 @@ function Actions({ i }) {
       }
 
       function handlechange(e) {
-            SsetPost({ name: `${i.id}`, style: { backgroundColor: 'red', color: 'blue' } });
+            // SsetPost({ name: `${i.id}`, style: { backgroundColor: 'red', color: 'blue' } });
             // put({ id: i.id, data: { style: `${SGet.name}` } });
       }
 
+      function onclick(e) {
+            // SsetPost({ name: `${i.id}`, style: { color: 'red' } })
+            // GetByName(i.id).forEach((Si) => setTimeout(() => {
+            //       SsetDel(Si.id)
+            // }, 0))
+      }
+
+
       return (
             <div
-                  onClick={() => SsetPost({ name: `${i.id}`, style: { color: 'red' } })}
+                  onClick={onclick}
                   onMouseLeave={() => setisover(false)}
                   onMouseOver={() => setisover(true)}
                   style={{ display: 'flex' }}

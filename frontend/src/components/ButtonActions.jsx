@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import useElements from '../apiHooks/useElements'
 import { Select } from 'antd';
+import useStyles from '../apiHooks/useStyles';
 
 const { Option } = Select;
 
 function ButtonActions({ i }) {
       const { data, put, deleting, SetnewPost } = useElements();
+      const { GetByName, SsetPut, SsetDel, SsetPost } = useStyles()
 
       function update(event) {
             put({ id: i.id, data: { src: `${event.target.value}` } })
       }
 
       function onChange(value) {
-            value == 'delete' && deleting(i.id)
+            value == 'delete' && deleting(i.id);
             value == 'create sub' && SetnewPost({ tag: 'div', text: 'add new text', main: `${i.id}` })
             value == 'create' && SetnewPost({ tag: 'div', text: 'add new text', main: `${i.main}` })
             value == 'sub image' && SetnewPost({ tag: 'img', src: 'https://voxpopulii.in/system/static/dashboard/img/default_user.png', main: `${i.id}` })
