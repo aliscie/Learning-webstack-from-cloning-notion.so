@@ -4,6 +4,7 @@ import useStyles from '../apiHooks/useStyles'
 import 'antd/dist/antd.css';
 import Button from './button'
 import { useSpring, animated } from 'react-spring'
+import Boxshape from './Boxshape';
 
 function Actions({ i }) {
       const { data, put, deleting, SetnewPost } = useElements();
@@ -37,7 +38,10 @@ function Actions({ i }) {
                   style={{ display: 'flex' }}
             >
 
-                  <animated.div style={props} ><Button i={i} /></animated.div>
+                  <animated.div style={props} >
+                        <Button i={i} />
+                        <Boxshape />
+                  </animated.div>
 
                   <div
                         style={GetByName(i.id).map(i => { return JSON.parse(i.style) })[0]}
@@ -47,15 +51,13 @@ function Actions({ i }) {
                                     <div
                                           id={i.id}
                                           onKeyUp={(event) => update(event, i)}
-                                          contentEditable='true'>
+                                          contentEditable='true'
+                                          style={{ outline: 'none' }}>
                                           {i.text}
                                     </div>
                         }
                   </div>
-                  <input
-                        onChange={handlechange}
-                        type='number' style={{ width: '40px', height: '20px' }} />
-            </div >
+            </div>
       )
 }
 export default Actions;
