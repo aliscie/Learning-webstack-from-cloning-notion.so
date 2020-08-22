@@ -1,14 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../css/style.css'
 
-function Boxshape() {
+function Boxshape({ className }) {
+      const [w, setW] = useState(100)
+      const [h, setH] = useState(100)
+      const [isDown, setisDown] = useState(false)
+
+      function Handle({ className }) {
+
+            const mouseOverHandler = () => {
+                  console.log(`mouse over: ${className}`)
+            }
+
+            return (
+                  <div
+                        onMouseOver={mouseOverHandler}
+                        className={`corner ${className}`}></div>
+            )
+      }
+
       return (
-            <div className='item'>
+            <div
+
+                  style={{ width: `${w}px`, height: `${h}px` }}
+                  className='item'>
                   <div className='box'>
-                        <div className='corner A'></div>
-                        <div className='corner B'></div>
-                        <div className='corner C'></div>
-                        <div className='corner D'></div>
+                        <Handle className='corner A' />
+                        <Handle className='corner B' />
+                        <Handle className='corner C' />
+                        <Handle className='corner D' />
                   </div>
             </div>
       )
