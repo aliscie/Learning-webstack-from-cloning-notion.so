@@ -15,6 +15,10 @@ function App() {
         className=' btn btn-success'
       >+ parent</button>
       <button
+        onClick={() => SetnewPost({ tag: 'table' })}
+        className=' btn btn-success'
+      >+ table</button>
+      <button
         onClick={() => SetnewPost({ tag: 'img', src: 'https://image.shutterstock.com/image-photo/samoyed-dog-resting-on-green-260nw-1744113746.jpg' })}
         className=' btn btn-success'
       >+ img</button>

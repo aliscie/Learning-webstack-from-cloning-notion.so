@@ -5,6 +5,8 @@ import 'antd/dist/antd.css';
 import Button from './button'
 import { useSpring, animated } from 'react-spring'
 import Boxshape from './Boxshape';
+import Div from '../elements/Div'
+import SimpleTable from '../elements/Table'
 
 function Actions({ i }) {
       const { data, put, deleting, SetnewPost } = useElements();
@@ -47,14 +49,13 @@ function Actions({ i }) {
                         style={GetByName(i.id).map(i => { return JSON.parse(i.style) })[0]}
                   >
                         {
-                              i.tag === 'img' ? <img id={i.id} src={i.src} /> :
-                                    <div
-                                          id={i.id}
-                                          onKeyUp={(event) => update(event, i)}
-                                          contentEditable='true'
-                                          style={{ outline: 'none' }}>
-                                          {i.text}
-                                    </div>
+                              i.tag === 'img' && <img id={i.id} src={i.src} />
+                        }
+                        {
+                              i.tag === 'div' && <Div i={i} />
+                        }
+                        {
+                              i.tag === 'table' && <SimpleTable i={i} />
                         }
                   </div>
             </div>
