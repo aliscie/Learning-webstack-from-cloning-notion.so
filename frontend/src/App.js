@@ -10,6 +10,8 @@ function App() {
     <div
       style={{ paddingLeft: "200px", flexGrow: '1', alignItems: 'center' }}>
       <Recur data={data} />
+
+
       <button
         onClick={() => SetnewPost({ tag: 'div', text: 'add new text', style: { borderRadius: '5px', backgroundColor: 'orange' } })}
         className=' btn btn-success'

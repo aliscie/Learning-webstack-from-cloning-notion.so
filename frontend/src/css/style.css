@@ -1,0 +1,36 @@
+
+.item{
+      height: 100px;
+      width: 100px;
+      position: absolute;
+      background-color: aquamarine;
+}
+.corner{
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      /* background-color: black; */
+      z-index: 2;
+}
+
+.A{
+      top:-1px;
+      left: -1px;
+      cursor: nw-resize;
+}
+.B{
+      top:-1px;
+      right: -1px;
+      cursor: ne-resize;
+}
+.C{
+      bottom:-1px;
+      left: -1px;
+      cursor: sw-resize;
+}
+.D{
+      bottom:-1px;
+      right: -1px;
+      cursor: se-resize;
+}

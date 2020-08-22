@@ -7,6 +7,7 @@ import { useSpring, animated } from 'react-spring'
 import Boxshape from './Boxshape';
 import Div from '../elements/Div'
 import SimpleTable from '../elements/Table'
+import '../css/style.css'
 
 function Actions({ i }) {
       const { data, put, deleting, SetnewPost } = useElements();
@@ -45,6 +46,7 @@ function Actions({ i }) {
                         <Boxshape />
                   </animated.div>
 
+
                   <div
                         style={GetByName(i.id).map(i => { return JSON.parse(i.style) })[0]}
                   >
@@ -58,7 +60,7 @@ function Actions({ i }) {
                               i.tag === 'table' && <SimpleTable i={i} />
                         }
                   </div>
-            </div>
+            </div >
       )
 }
 export default Actions;
