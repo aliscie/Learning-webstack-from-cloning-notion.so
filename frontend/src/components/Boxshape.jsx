@@ -8,14 +8,19 @@ function Boxshape({ className }) {
 
       function Handle({ className }) {
 
-            const mouseOverHandler = () => {
-                  console.log(`mouse over: ${className}`)
+            const mouseOverHandler = (e) => {
+                  if (isDown) {
+                        className == 'corner D' && setH(pre => { return pre - 20 })
+                  }
             }
 
             return (
                   <div
+                        onMouseDown={() => setisDown(true)}
+                        onMouseUp={() => setisDown(false)}
                         onMouseOver={mouseOverHandler}
-                        className={`corner ${className}`}></div>
+                        className={`corner ${className}`}
+                  ></div>
             )
       }
 

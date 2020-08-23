@@ -31,7 +31,7 @@ function Drag(prop) {
 
       return (
             <animated.div
-                  draggable='true'
+                  // draggable='true'
                   onDragStart={onDragStart}
                   onDragEnd={() => { setDraged(false) }}
                   onDragEnter={() => { setOvered(true) }}
