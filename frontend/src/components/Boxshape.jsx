@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import '../css/style.css'
 
 function Boxshape({ className }) {
-      const [w, setW] = useState(100)
-      const [h, setH] = useState(100)
+      const [S, setS] = useState({ w: 100, h: 100 })
       const [isDown, setisDown] = useState(false)
       const [dowPostion, setpostion] = useState({})
       function handledown(e) {
@@ -15,11 +14,11 @@ function Boxshape({ className }) {
 
             const mouseOverHandler = (e) => {
                   if (isDown) {
-                        setW(w - (dowPostion.prex - e.clientX))
-                        setH(h - (dowPostion.prey - e.clientY))
+                        setS({
+                              w: S.w - (dowPostion.prex - e.clientX),
+                              h: S.h - (dowPostion.prey - e.clientY)
+                        })
                         setpostion({ prex: e.clientX, prey: e.clientY })
-
-                        // className == 'corner D' && setH(pre => { return pre - (prex - x) })
                   }
             }
 
@@ -36,7 +35,7 @@ function Boxshape({ className }) {
       return (
             <div
 
-                  style={{ width: `${w}px`, height: `${h}px` }}
+                  style={{ width: `${S.w}px`, height: `${S.h}px` }}
                   className='item'>
                   <div className='box'>
                         <Handle className='A' />
