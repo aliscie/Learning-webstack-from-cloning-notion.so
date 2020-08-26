@@ -1,14 +1,12 @@
 
 .item{
-      height: 100px;
-      width: 100px;
       position: absolute;
       background-color: aquamarine;
 }
 .corner{
       position: absolute;
-      width: 10px;
-      height: 10px;
+      width: 15px;
+      height: 15px;
       border-radius: 5px;
       /* background-color: black; */
       z-index: 2;

@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import '../css/style.css'
 
 function Boxshape({ className }) {
-      const [S, setS] = useState({ w: 100, h: 100 })
+      const [V, setV] = useState({ w: 100, h: 100, t: 0, l: 15 })
       const [isDown, setisDown] = useState(false)
       const [dowPostion, setpostion] = useState({})
+
+
       function handledown(e) {
+
             setisDown(true)
             setpostion({ prex: e.clientX, prey: e.clientY })
       }
@@ -13,11 +16,36 @@ function Boxshape({ className }) {
       function Handle({ className }) {
 
             const mouseOverHandler = (e) => {
+                  console.log(className)
                   if (isDown) {
-                        setS({
-                              w: S.w - (dowPostion.prex - e.clientX),
-                              h: S.h - (dowPostion.prey - e.clientY)
-                        })
+                        if (className === 'D') {
+                              setV({
+                                    w: V.w - (dowPostion.prex - e.clientX),
+                                    h: V.h - (dowPostion.prey - e.clientY)
+                              })
+                        }
+                        if (className === 'C') {
+                              setV({
+                                    w: V.w + (dowPostion.prex - e.clientX),
+                                    h: V.h - (dowPostion.prey - e.clientY),
+                                    l: V.l - (dowPostion.prex - e.clientX)
+                              })
+                        }
+                        if (className === 'B') {
+                              setV({
+                                    w: V.w - (dowPostion.prex - e.clientX),
+                                    h: V.h + (dowPostion.prey - e.clientY),
+                                    t: V.t - (dowPostion.prey - e.clientY)
+                              })
+                        }
+                        if (className === 'A') {
+                              setV({
+                                    w: V.w + (dowPostion.prex - e.clientX),
+                                    h: V.h + (dowPostion.prey - e.clientY),
+                                    t: V.t - (dowPostion.prey - e.clientY),
+                                    l: V.l - (dowPostion.prex - e.clientX)
+                              })
+                        }
                         setpostion({ prex: e.clientX, prey: e.clientY })
                   }
             }
@@ -35,7 +63,7 @@ function Boxshape({ className }) {
       return (
             <div
 
-                  style={{ width: `${S.w}px`, height: `${S.h}px` }}
+                  style={{ width: `${V.w}px`, height: `${V.h}px`, top: `${V.t}px`, left: `${V.l}px` }}
                   className='item'>
                   <div className='box'>
                         <Handle className='A' />
