@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import '../css/style.css'
 
-function Boxshape({ className }) {
-      const [V, setV] = useState({ w: 100, h: 100, t: 0, l: 15 })
+function Boxshape({ className, Items, i }) {
+      // console.log(document.getElementById(i.id).offsetHeight)
+      const [V, setV] = useState({ w: null, h: null, t: 0, l: 15 })
       const [isDown, setisDown] = useState(false)
       const [dowPostion, setpostion] = useState({})
 
@@ -62,10 +63,11 @@ function Boxshape({ className }) {
 
       return (
             <div
-
-                  style={{ width: `${V.w}px`, height: `${V.h}px`, top: `${V.t}px`, left: `${V.l}px` }}
+                  id={i.id}
+                  // style={{ width: `${V.w}px`, height: `${V.h}px`, top: `${V.t}px`, left: `${V.l}px` }}
                   className='item'>
                   <div className='box'>
+                        <Items />
                         <Handle className='A' />
                         <Handle className='B' />
                         <Handle className='C' />

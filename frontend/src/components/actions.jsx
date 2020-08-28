@@ -37,7 +37,7 @@ function Actions({ i }) {
                         style={GetByName(i.id).map(i => { return JSON.parse(i.style) })[0]}
                   >
                         {
-                              i.tag === 'img' && <img id={i.id} src={i.src} />
+                              i.tag === 'img' && <img src={i.src} />
                         }
                         {
                               i.tag === 'div' && <Div i={i} />
@@ -61,9 +61,9 @@ function Actions({ i }) {
 
                   <animated.div style={props} >
                         <Button i={i} />
-                        <Boxshape />
+
                   </animated.div>
-                  <Items />
+                  <Boxshape Items={Items} i={i} />
 
             </div >
       )

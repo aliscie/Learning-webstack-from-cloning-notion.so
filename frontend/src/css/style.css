@@ -1,6 +1,6 @@
 
 .item{
-      position: absolute;
+      position: relative;
       background-color: aquamarine;
 }
 .corner{

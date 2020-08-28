@@ -15,7 +15,7 @@ function Recur({ data }) {
                   {data.map(i => {
                         return (
                               <Drag childern={
-                                    <div id={i.id}>
+                                    <div>
                                           <Actions i={i} />
                                           <div style={{ marginLeft: "20px" }}>
                                                 {i.sub && <ItSelf data={i.sub} />}</div>
