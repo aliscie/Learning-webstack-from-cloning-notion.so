@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import '../css/style.css'
 
 function Boxshape({ className, Items, i }) {
-      // console.log(document.getElementById(i.id).offsetHeight)
-      const [V, setV] = useState({ w: null, h: null, t: 0, l: 15 })
+      console.log(document.getElementById(i.id))
+      const [V, setV] = useState({ w: 'auto', h: 'auto', t: 0, l: 15 })
       const [isDown, setisDown] = useState(false)
       const [dowPostion, setpostion] = useState({})
 
@@ -21,28 +21,28 @@ function Boxshape({ className, Items, i }) {
                   if (isDown) {
                         if (className === 'D') {
                               setV({
-                                    w: V.w - (dowPostion.prex - e.clientX),
-                                    h: V.h - (dowPostion.prey - e.clientY)
+                                    w: document.getElementById(i.id).offsetWidth - (dowPostion.prex - e.clientX),
+                                    h: document.getElementById(i.id).offsetHeight - (dowPostion.prey - e.clientY)
                               })
                         }
                         if (className === 'C') {
                               setV({
-                                    w: V.w + (dowPostion.prex - e.clientX),
-                                    h: V.h - (dowPostion.prey - e.clientY),
+                                    w: document.getElementById(i.id).offsetWidth + (dowPostion.prex - e.clientX),
+                                    h: document.getElementById(i.id).offsetHeight - (dowPostion.prey - e.clientY),
                                     l: V.l - (dowPostion.prex - e.clientX)
                               })
                         }
                         if (className === 'B') {
                               setV({
-                                    w: V.w - (dowPostion.prex - e.clientX),
-                                    h: V.h + (dowPostion.prey - e.clientY),
+                                    w: document.getElementById(i.id).offsetWidth - (dowPostion.prex - e.clientX),
+                                    h: document.getElementById(i.id).offsetHeight + (dowPostion.prey - e.clientY),
                                     t: V.t - (dowPostion.prey - e.clientY)
                               })
                         }
                         if (className === 'A') {
                               setV({
-                                    w: V.w + (dowPostion.prex - e.clientX),
-                                    h: V.h + (dowPostion.prey - e.clientY),
+                                    w: document.getElementById(i.id).offsetWidth + (dowPostion.prex - e.clientX),
+                                    h: document.getElementById(i.id).offsetHeight + (dowPostion.prey - e.clientY),
                                     t: V.t - (dowPostion.prey - e.clientY),
                                     l: V.l - (dowPostion.prex - e.clientX)
                               })
@@ -64,7 +64,7 @@ function Boxshape({ className, Items, i }) {
       return (
             <div
                   id={i.id}
-                  // style={{ width: `${V.w}px`, height: `${V.h}px`, top: `${V.t}px`, left: `${V.l}px` }}
+                  style={{ width: V.w, height: V.h, top: `${V.t}px`, left: `${V.l}px` }}
                   className='item'>
                   <div className='box'>
                         <Items />
