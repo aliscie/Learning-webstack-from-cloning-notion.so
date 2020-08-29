@@ -61,10 +61,8 @@ function Actions({ i }) {
 
                   <animated.div style={props} >
                         <Button i={i} />
-
                   </animated.div>
                   <Boxshape Items={Items} i={i} />
-
             </div >
       )
 }

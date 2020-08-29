@@ -5,6 +5,8 @@ function Boxshape({ className, Items, i }) {
       console.log(document.getElementById(i.id))
       const [V, setV] = useState({ w: 'auto', h: 'auto', t: 0, l: 15 })
       const [isDown, setisDown] = useState(false)
+      const [isover, setover] = useState(false)
+
       const [dowPostion, setpostion] = useState({})
 
 
@@ -64,8 +66,11 @@ function Boxshape({ className, Items, i }) {
       return (
             <div
                   id={i.id}
-                  style={{ width: V.w, height: V.h, top: `${V.t}px`, left: `${V.l}px` }}
-                  className='item'>
+                  style={{ width: V.w, height: V.h, top: `${V.t}px`, left: `${V.l}px`, borderColor: 'red', border: isover ? 'inset' : 'none' }}
+                  onMouseOver={() => setover(true)}
+                  onMouseLeave={() => setover(false)}
+                  className='item'
+            >
                   <div className='box'>
                         <Items />
                         <Handle className='A' />
