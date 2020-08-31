@@ -6,9 +6,11 @@
     "antd": "^4.5.2",
     "axios": "^0.19.2",
     "cra-template": "1.0.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
     "react-simple-animate": "^3.3.9",
     "react-spring": "^8.0.27"
   },
