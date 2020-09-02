@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import '../css/style.css'
+import Drag from '../hooks/Drag'
+
 
 function Boxshape({ className, Items, i }) {
-      console.log(document.getElementById(i.id))
+      // console.log(document.getElementById(i.id))
       const [V, setV] = useState({ w: 'auto', h: 'auto', t: 0, l: 15 })
       const [isDown, setisDown] = useState(false)
       const [isover, setover] = useState(false)
 
       const [dowPostion, setpostion] = useState({})
-
+      const value = 'test this is comming from boxshape to drag'
 
       function handledown(e) {
 
@@ -19,7 +21,7 @@ function Boxshape({ className, Items, i }) {
       function Handle({ className }) {
 
             const mouseOverHandler = (e) => {
-                  console.log(className)
+                  // console.log(className)
                   if (isDown) {
                         if (className === 'D') {
                               setV({
@@ -59,7 +61,9 @@ function Boxshape({ className, Items, i }) {
                         onMouseUp={() => setisDown(false)}
                         onMouseMove={mouseOverHandler}
                         className={`corner ${className}`}
-                  ></div>
+                  >
+                        <Drag isDown={isDown} />
+                  </div>
             )
       }
 

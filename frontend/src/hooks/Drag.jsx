@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useSpring, animated } from 'react-spring'
 import useElements from '../apiHooks/useElements'
-
-function Drag(prop) {
+import { isDraging } from '../components/Boxshape'
+function Drag({ i, childern, isDown }) {
       const { data, put, deleting, SetnewPost } = useElements();
       const [draged, setDraged] = useState(false)
       const [overed, setOvered] = useState(false)
@@ -17,21 +17,19 @@ function Drag(prop) {
             setDraged(true);
             //if the user drag the butten then  e.target.childNodes[0].lastChild.id
             //if the user drag the object it self liek draging the image then e.target.id
-            // console.log(e.target.id ? e.target.id : e.target.children[0].id)
-            const elementid = e.target.id ? e.target.id : e.target.children[0].id
-            e.dataTransfer.setData("name", elementid);
+            const elementid = e.target.children[0].children[0]
+            e.dataTransfer.setData("name", elementid.className);
       };
 
       const onDrop = (e) => {
             setOvered(false)
-            put({ id: e.dataTransfer.getData("name"), data: { main: `${e.target.id}` } })
+            put({ id: e.dataTransfer.getData("name"), data: { main: `${e.target.className}` } })
 
       };
 
-
       return (
             <animated.div
-                  // draggable='true'
+                  draggable={`${!isDown}`}
                   onDragStart={onDragStart}
                   onDragEnd={() => { setDraged(false) }}
                   onDragEnter={() => { setOvered(true) }}
@@ -40,7 +38,7 @@ function Drag(prop) {
                   onDrop={onDrop}
                   style={props}
             >
-                  {prop.childern}
+                  {childern}
             </animated.div>
       )
 }

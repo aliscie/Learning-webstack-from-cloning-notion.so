@@ -5,10 +5,9 @@ import Recur from './components/recursion'
 function App() {
   const { data, put, deleting, SetnewPost } = useElements();
 
-
   return (
     <div
-      style={{ paddingLeft: "200px", flexGrow: '1', alignItems: 'center' }}>
+      style={{ flexGrow: '1', alignItems: 'center' }}>
       <Recur data={data} />
 
 

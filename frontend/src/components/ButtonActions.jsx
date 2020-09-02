@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import useElements from '../apiHooks/useElements'
 import { Select } from 'antd';
 import useStyles from '../apiHooks/useStyles';
+import { configConsumerProps } from 'antd/lib/config-provider';
 
 const { Option } = Select;
 
@@ -13,23 +14,43 @@ function ButtonActions({ i }) {
             put({ id: i.id, data: { src: `${event.target.value}` } })
       }
 
+      function recureDelete(y) {
+            y.map(y => {
+                  Delete(y)
+            })
+      }
+
+      function Delete(x) {
+            //delete all child element
+            //but can't delete parents.
+            const promise1 = new Promise((resolve, reject) => {
+                  if (x.sub.length > 0) { recureDelete(x.sub) }
+                  else { resolve(x) }
+            });
+
+            promise1.then((x) => {
+                  deleting(x.id)
+            });
+
+      }
+
       function onChange(value) {
-            value == 'delete' && deleting(i.id);
+            value == 'delete' && Delete(i);
             value == 'create sub' && SetnewPost({ tag: 'div', text: 'add new text', main: `${i.id}` })
             value == 'create' && SetnewPost({ tag: 'div', text: 'add new text', main: `${i.main}` })
             value == 'sub image' && SetnewPost({ tag: 'img', src: 'https://voxpopulii.in/system/static/dashboard/img/default_user.png', main: `${i.id}` })
       }
 
       function onBlur() {
-            console.log('blur');
+            // console.log('blur');
       }
 
       function onFocus() {
-            console.log('focus');
+            // console.log('focus');
       }
 
       function onSearch(val) {
-            console.log('search:', val);
+            // console.log('search:', val);
       }
 
       return (

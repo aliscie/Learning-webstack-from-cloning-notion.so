@@ -6,8 +6,8 @@ import Button from './button'
 import { useSpring, animated } from 'react-spring'
 import Boxshape from './Boxshape';
 import Div from '../elements/Div'
-import SimpleTable from '../elements/Table'
 import '../css/style.css'
+import SimpleTable from '../elements/Table';
 
 function Actions({ i }) {
       const { data, put, deleting, SetnewPost } = useElements();
@@ -53,10 +53,11 @@ function Actions({ i }) {
 
       return (
             <div
+                  className={i.id}
                   onClick={onclick}
                   onMouseLeave={() => setisover(false)}
                   onMouseOver={() => setisover(true)}
-                  style={{ display: 'flex' }}
+                  style={{ paddingLeft: "200px", display: 'flex' }}
             >
 
                   <animated.div style={props} >
