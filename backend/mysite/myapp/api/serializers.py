@@ -8,7 +8,7 @@ class elementsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = elements
-        fields = ('id', 'tag', 'text', 'src', 'style', 'main', 'sub')
+        fields = ('id', 'tag', 'text', 'src', 'style', 'table', 'main', 'sub')
 
 
 class stylesSerializer(serializers.ModelSerializer):

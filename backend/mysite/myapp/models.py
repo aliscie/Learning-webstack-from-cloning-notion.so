@@ -9,12 +9,12 @@ class elements(models.Model):
     # problem: styles replace spaces with slashes (/)
     # I tried: json field but did'nt work.
     style = models.JSONField(blank=True, null=True)
-
+    table = models.JSONField(blank=True, null=True)
     main = models.ForeignKey(
         'self', null=True, blank=True, related_name="sub", on_delete=models.PROTECT)
 
     def __str__(self):
-        return "<elements: {} {}>".format(self.tag, self.text, self.src, self.style)
+        return "<elements: {} {}>".format(self.tag, self.text, self.src, self.style, self.table)
 
     def __repr__(self):
         return self.__str__()
