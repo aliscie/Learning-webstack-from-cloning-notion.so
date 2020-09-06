@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import '../css/style.css'
 import Drag from '../hooks/Drag'
 
-
+let isdown = false
 function Boxshape({ className, Items, i }) {
       // console.log(document.getElementById(i.id))
       const [V, setV] = useState({ w: 'auto', h: 'auto', t: 0, l: 15 })
       const [isDown, setisDown] = useState(false)
       const [isover, setover] = useState(false)
-
+      isdown = isDown
       const [dowPostion, setpostion] = useState({})
       const value = 'test this is comming from boxshape to drag'
 
@@ -87,3 +87,4 @@ function Boxshape({ className, Items, i }) {
 }
 
 export default Boxshape
+export { isdown }

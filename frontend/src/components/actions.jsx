@@ -7,7 +7,7 @@ import { useSpring, animated } from 'react-spring'
 import Boxshape from './Boxshape';
 import Div from '../elements/Div'
 import '../css/style.css'
-import SimpleTable from '../elements/Table';
+import Table from '../elements/Table';
 
 function Actions({ i }) {
       const { data, put, deleting, SetnewPost } = useElements();
@@ -43,7 +43,7 @@ function Actions({ i }) {
                               i.tag === 'div' && <Div i={i} />
                         }
                         {
-                              i.tag === 'table' && <SimpleTable i={i} />
+                              i.tag === 'table' && <Table i={i} />
                         }
                   </div>
             )
