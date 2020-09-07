@@ -3,14 +3,11 @@ import './tablecss.css'
 
 function Table({ i }) {
       const [longiest, setLong] = useState(0)
-      const [m, setM] = useState(0)
-
-      useEffect(() => {
-            for (let m = 3; m >= 0; m--) {
-                  setM(m)
-            }
-      }, [m])
-
+      let arr = []
+      for (let m = 0; m <= longiest; m++) {
+            arr.push(m)
+      }
+      console.log(arr)
       useEffect(() => {
             Object.keys(i.table).map(i => {
                   longiest < i.length && setLong(i.length)
@@ -31,14 +28,22 @@ function Table({ i }) {
                         })}
                   </tr></thead>
                   <tbody>
-                        <tr>
-                              {
-                                    Object.keys(i.table).map(s => {
-                                          return <th>{i.table.[s][m]}</th>
-                                    }
-                                    )
-                              }
-                        </tr>
+                        {arr.map(number => {
+                              return (
+                                    <tr>
+                                          {
+                                                Object.keys(i.table).map(s => {
+                                                      return <th>{i.table.[s][number]}</th>
+                                                }
+                                                )
+                                          }
+
+                                    </tr>
+                              )
+                        })
+
+                        }
+
                   </tbody>
             </div>
       )
