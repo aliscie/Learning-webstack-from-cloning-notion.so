@@ -16,7 +16,7 @@ function App() {
         className=' btn btn-success'
       >+ parent</button>
       <button
-        onClick={() => SetnewPost({ tag: 'table' })}
+        onClick={() => SetnewPost({ tag: 'table', table: { "Column": ["val", "val2", "val3"], "name": ["name", "name"] } })}
         className=' btn btn-success'
       >+ table</button>
       <button
