@@ -1,34 +1,23 @@
 import React, { useState, useEffect } from 'react'
+import Longiest from '../hooks/MaxArr'
 import './tablecss.css'
 
 function Table({ i }) {
-      const [longiest, setLong] = useState(0)
-      let arr = []
-      for (let m = 0; m <= longiest; m++) {
-            arr.push(m)
-      }
-      console.log(arr)
-      useEffect(() => {
-            Object.keys(i.table).map(i => {
-                  longiest < i.length && setLong(i.length)
-                  console.log('longiest ' + longiest)
-            })
-      }, [longiest])
-
-
+      const MaxArr = Longiest(i.table)
 
       return (
             <div>
                   <thead><tr>
-                        {Object.keys(i.table).map(i => {
+                        {Object.keys(i.table).map(s => {
                               return (
 
-                                    <th>{i}</th>
+                                    <th>{s}</th>
                               )
                         })}
                   </tr></thead>
+
                   <tbody>
-                        {arr.map(number => {
+                        {MaxArr.map(number => {
                               return (
                                     <tr>
                                           {
