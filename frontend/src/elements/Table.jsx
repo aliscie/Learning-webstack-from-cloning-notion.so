@@ -4,57 +4,39 @@ import './tablecss.css'
 import useElements from '../apiHooks/useElements'
 
 function Table({ i }) {
-      const MaxArr = Longiest(i.table)
-      const { data, put, deleting, SetnewPost } = useElements();
 
-      function Th({ Val, s, number }) {
-            function onKeyUp(e) {
-                  const values = i.table
-                  values.[s][number] = e.target.innerText
-                  console.log(values)
-                  // console.log(e.target, Val, s, number)
-                  put({ id: i.id, data: { table: values } })
+      function Cells({ content }) {
+            const tableStyle = { outline: '1px solid black', paddingRight: '5px', paddingLeft: '4px' }
 
-            }
             return (
-                  <th
-                        contentEditable='true'
-                        onKeyUp={onKeyUp}
-                  >
-                        {Val}
-                  </th>
+                  <div
+                        style={tableStyle}
+                        contentEditable="true"
+                  >{content}</div>
             )
       }
       return (
-            <div>
-                  <thead><tr>
-                        {Object.keys(i.table).map((s, index) => {
-                              return (
+            <div >
+                  <h1>{i.text}</h1>
+                  {i.sub.map(column => {
+                        return (
 
-                                    <Th index={index} key={i.id} Val={s} />
-                              )
-                        })}
-                  </tr></thead>
+                              <div style={{ display: 'inline-block' }}>
+                                    <div style={{ color: 'gray' }}> <Cells content={column.text} /></div>
+                                    {column.sub.map((cell) => {
+                                          return (
+                                                <Cells content={cell.text} />
+                                          )
+                                    })}
 
-                  <tbody>
-                        {MaxArr.map(number => {
-                              return (
-                                    <tr>
+                              </div>
 
-                                          {
-                                                Object.keys(i.table).map((s, index) => {
-                                                      return <Th s={s} number={number} Val={i.table.[s][number]} />
-                                                }
-                                                )
-                                          }
+                        )
+                  })
+                  }
 
-                                    </tr>
-                              )
-                        })
 
-                        }
 
-                  </tbody>
             </div>
       )
 }
