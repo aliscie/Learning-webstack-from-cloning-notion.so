@@ -4,39 +4,10 @@ import './tablecss.css'
 import useElements from '../apiHooks/useElements'
 
 function Table({ i }) {
-
-      function Cells({ content }) {
-            const tableStyle = { outline: '1px solid black', paddingRight: '5px', paddingLeft: '4px' }
-
-            return (
-                  <div
-                        style={tableStyle}
-                        contentEditable="true"
-                  >{content}</div>
-            )
-      }
+      console.log(i)
       return (
             <div >
-                  <h1>{i.text}</h1>
-                  {i.sub.map(column => {
-                        return (
-
-                              <div style={{ display: 'inline-block' }}>
-                                    <div style={{ color: 'gray' }}> <Cells content={column.text} /></div>
-                                    {column.sub.map((cell) => {
-                                          return (
-                                                <Cells content={cell.text} />
-                                          )
-                                    })}
-
-                              </div>
-
-                        )
-                  })
-                  }
-
-
-
+                  <h1 style={{ outline: '2px solid black' }}>{i.text}</h1>
             </div>
       )
 }
