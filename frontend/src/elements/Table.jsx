@@ -4,10 +4,26 @@ import './tablecss.css'
 import useElements from '../apiHooks/useElements'
 
 function Table({ i }) {
-      console.log(i)
+
+      function Cell({ elements }) {
+            return (
+                  <div style={{ display: 'flex' }}>
+                        {elements.map(cell => {
+                              return (
+                                    <div style={{ border: '2px solid black', padding: '5px', width: '100px' }}>
+                                          {cell}
+                                    </div>
+                              )
+                        })}
+                  </div>
+            )
+      }
+
       return (
             <div >
-                  <h1 style={{ outline: '2px solid black' }}>{i.text}</h1>
+                  {!i.main && <h1>{i.table}</h1>}
+                  {i.table.columns && <h4><Cell elements={i.table.columns} /></h4>}
+                  {i.table.cells && <Cell elements={i.table.cells} />}
             </div>
       )
 }

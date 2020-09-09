@@ -43,7 +43,7 @@ function Actions({ i }) {
                               i.tag === 'div' && <Div i={i} />
                         }
                         {
-                              i.tag === 'tab' && <Table i={i} />
+                              i.tag === 'table' && <Table i={i} />
                         }
                   </div>
             )
