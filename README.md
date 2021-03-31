@@ -1,6 +1,6 @@
-# Learning-webstack-from-cloning-notion.so
+# Learning webstack from cloning notion.so
 # intro
-      * I'm new to web stack and I would like to learn by coloberatig with you by watching your forks and seggestion.
+      * I need to level up my web dev skills by open source collaperation.
       * I like to learn by building an app like notion.so becuae it has all what I need.
 # how this repo work
       * every git commit message discripe every step in the app to help you understand what i'm doing.
