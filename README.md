@@ -1,3 +1,5 @@
+# every thing as been moved to [this repo](https://github.com/aliscie/Notion-so-clone) as front end and [this](https://github.com/aliscie/notion-so-clone-api/projects) as backend
+___
 # Learning webstack from cloning notion.so
 # intro
       * I need to level up my web dev skills by open source collaperation.
